@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creature Sokoban</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <div class="toolbar">
+        <a href="index.html">← Menu</a>
+        <strong>Creature Sokoban</strong>
+        <span style="opacity:.7">Arrows to move · push creatures onto glowing goals · R to restart</span>
+        <span id="hud"></span>
+      </div>
+      <div id="game"></div>
+    </main>
+    <script src="https://pixijs.download/release/pixi.js"></script>
+    <script src="creatures.js"></script>
+    <script src="levels/microban.js"></script>
+    <script src="sokoban.js"></script>
+  </body>
+</html>

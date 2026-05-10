@@ -1,0 +1,167 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #0e1115;
+  color: #eef2f6;
+  font: 13px/1.4 system-ui, -apple-system, sans-serif;
+}
+main { display: grid; gap: 8px; }
+.toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.toolbar a { color: #9ad; text-decoration: none; padding: 4px 8px; border: 1px solid #2a3038; border-radius: 4px; }
+.toolbar a:hover { background: #1a1f26; }
+label { display: flex; align-items: center; gap: 8px; }
+input[type=range] { width: 220px; }
+#hud {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+  min-width: 170px;
+  flex-wrap: wrap;
+}
+#hud select,
+#hud button {
+  appearance: none;
+  background: #1a1f26;
+  color: #eef2f6;
+  border: 1px solid #59616d;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font: inherit;
+  cursor: pointer;
+}
+#hud select {
+  background:
+    linear-gradient(45deg, transparent 50%, #9ad 50%) calc(100% - 13px) 50% / 5px 5px no-repeat,
+    linear-gradient(135deg, #9ad 50%, transparent 50%) calc(100% - 8px) 50% / 5px 5px no-repeat,
+    #1a1f26;
+  padding-right: 24px;
+}
+#hud select:hover,
+#hud button:hover,
+#hud button.active { border-color: #9ad; background-color: #2a3038; }
+#level-editor {
+  display: grid;
+  grid-template-columns: max-content minmax(220px, 360px) max-content max-content;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+#level-editor[hidden] { display: none; }
+.editor-palette {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 4px;
+}
+#hud .editor-palette button.active {
+  border-color: #ffe066;
+  color: #ffe066;
+}
+#level-editor textarea {
+  min-height: 74px;
+  resize: vertical;
+  white-space: pre;
+  overflow: auto;
+  background: #0e1115;
+  color: #eef2f6;
+  border: 1px solid #59616d;
+  border-radius: 4px;
+  padding: 6px;
+  font: 12px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+#game canvas {
+  border: 1px solid #59616d;
+  image-rendering: pixelated;
+  display: block;
+}
+#game canvas.editing { cursor: crosshair; }
+.center-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.card-pick {
+  display: flex;
+  gap: 12px;
+  pointer-events: auto;
+}
+.card-pick button {
+  background: #1a1f26;
+  color: #eef2f6;
+  border: 1px solid #59616d;
+  border-radius: 8px;
+  padding: 16px;
+  font: inherit;
+  cursor: pointer;
+  width: 180px;
+}
+.card-pick button:hover { background: #2a3038; border-color: #9ad; }
+.card-pick h3 { margin: 0 0 6px; color: #ffe066; font-size: 14px; }
+.banner {
+  background: rgba(14, 17, 21, 0.92);
+  padding: 14px 22px;
+  border: 1px solid #59616d;
+  border-radius: 8px;
+  text-align: center;
+  pointer-events: auto;
+}
+.banner h2 { margin: 0 0 8px; }
+.banner button {
+  background: #1a1f26;
+  color: #eef2f6;
+  border: 1px solid #59616d;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font: inherit;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+/* menu */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 24px;
+  max-width: 1100px;
+}
+.menu-card {
+  background: #1a1f26;
+  border: 1px solid #2a3038;
+  border-radius: 10px;
+  padding: 18px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.menu-card:hover { transform: translateY(-2px); border-color: #9ad; }
+.menu-card h2 { margin: 0 0 6px; color: #ffe066; font-size: 16px; }
+.menu-card p { margin: 0; opacity: 0.75; font-size: 12px; }
+.menu-card .badge {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: #ff5577;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: .5px;
+}
+.menu-card .tag {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: #2a3038;
+  color: #9ad;
+  margin-bottom: 8px;
+  letter-spacing: .5px;
+}
+h1 { margin: 24px 24px 0; font-size: 22px; }
+.subtitle { margin: 0 24px 12px; opacity: 0.7; font-size: 12px; }
